@@ -307,18 +307,72 @@ Esta colaboración permite que el sistema multiagente realice asignaciones de ho
 
 ## 6. Plan de Validación
 
-- **Pruebas Unitarias:** Verificación de cada agente.
-- **Pruebas de Integración:** Colaboración efectiva entre agentes.
-- **Pruebas de Rendimiento:** Escalabilidad y adaptabilidad.
+Para asegurar que el sistema multiagente cumpla con sus objetivos y funcione correctamente, se han diseñado varias pruebas que permitirán validar cada agente de manera individual y en conjunto, así como evaluar el rendimiento del sistema bajo diferentes condiciones. A continuación, se describen las pruebas y los criterios de éxito.
 
-**Criterios de Éxito:**  
-1. Soluciones sin conflictos.  
-2. Uso eficiente de recursos.  
-3. Adaptabilidad.  
-4. Rendimiento óptimo.
+---
+
+### Definición de Pruebas
+
+#### **Pruebas Unitarias para Agentes**
+
+Estas pruebas tienen como objetivo verificar que cada agente cumpla su función de manera independiente:
+
+- **Agente de Aula:**  
+  - Validar que todos los cursos asignados a un aula cumplen con las restricciones de capacidad.
+
+- **Agente de Horario:**  
+  - Verificar que no se produzcan conflictos de horario en las aulas y que cada curso esté asignado en un horario único, sin superposiciones.
+
+- **Agente de Optimización:**  
+  - Asegurar que las soluciones seleccionadas maximizan el uso de diferentes aulas y optimizan la distribución de horarios.
+
+---
+
+#### **Pruebas de Integración de Agentes**
+
+Estas pruebas evaluarán la interacción entre los agentes, verificando que colaboren correctamente para producir una solución válida:
+
+- **Interacción entre Agente de Aula y Agente de Horario:**  
+  - Comprobar que las asignaciones de aulas y horarios no generen conflictos y que la información se intercambie de manera efectiva.
+
+- **Interacción con el Agente de Optimización:**  
+  - Validar que las soluciones generadas por los agentes de Aula y Horario sean correctamente evaluadas por el Agente de Optimización, garantizando que la solución final sea eficiente y sin conflictos.
+
+---
+
+#### **Pruebas de Rendimiento**
+
+Estas pruebas evaluarán la capacidad del sistema multiagente para manejar un mayor volumen de datos y restricciones:
+
+- **Incremento del volumen de datos:**  
+  - Incrementar el número de cursos, aulas y horarios disponibles para observar el rendimiento del sistema y garantizar que pueda procesar las asignaciones sin pérdida significativa de eficiencia o precisión.
+
+- **Pruebas de carga:**  
+  - Verificar que el sistema pueda adaptarse a cambios en las restricciones o en el número de cursos, manteniendo un rendimiento aceptable.
+
+---
+
+### Criterios de Éxito
+
+Para considerar que el sistema multiagente ha pasado las pruebas de validación, debe cumplir con los siguientes criterios:
+
+- **Soluciones sin conflictos:**  
+  - Todas las asignaciones de horarios y aulas deben cumplir con las restricciones definidas, evitando conflictos de horario, capacidad o uso de aulas.
+
+- **Distribución eficiente de recursos:**  
+  - La solución final debe maximizar el uso de diferentes aulas y distribuir de manera equitativa la carga horaria entre las asignaciones.
+
+- **Adaptabilidad a cambios:**  
+  - El sistema debe ajustarse rápidamente a modificaciones en las restricciones o a la adición de nuevos cursos, sin requerir reestructuraciones significativas.
+
+- **Rendimiento óptimo:**  
+  - El sistema debe procesar las asignaciones y generar soluciones en tiempos razonables, incluso al manejar un número elevado de restricciones y datos.
+
 
 ---
 
 ## 7. Conclusión
 
-El diseño propuesto implementa técnicas de **CSP** y un sistema **multiagente**, logrando una solución modular, escalable y eficiente. Esto asegura horarios óptimos y adaptables a restricciones futuras, mejorando la calidad de la planificación académica.
+El diseño de solución propuesto garantiza la asignación eficiente de horarios mediante la utilización de técnicas de programación con restricciones. La implementación en Python facilita la validación y optimización de las soluciones, asegurando un modelo flexible y robusto capaz de manejar las complejidades típicas del entorno educativo. Este enfoque no solo resuelve la problemática inicial, sino que también proporciona una herramienta adaptable para futuras necesidades y cambios.
+La programación con restricciones (CSP) es una herramienta eficaz para resolver problemas complejos de asignación, como la distribución de cursos en aulas. Utilizando variables y restricciones precisas, se logran soluciones óptimas que maximizan el uso de los recursos disponibles y optimizan la planificación académica. CSP permite explorar múltiples combinaciones y seleccionar la mejor opción, demostrando su aplicabilidad en contextos educativos y logísticos.
+
