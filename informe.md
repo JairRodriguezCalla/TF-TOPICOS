@@ -192,7 +192,7 @@ Luego, se establecieron restricciones para garantizar que ningún curso excedier
 Después de buscar todas las soluciones posibles, se calculó el uso de aulas en cada asignación y se identificó la mejor solución, que minimiza la cantidad de aulas utilizadas, presentando finalmente la asignación óptima de cursos junto con sus respectivas aulas, horarios y días.
 
 **Código del desarrollo:**  
-[Repositorio en GitHub](https://github.com/mauroadauto6/TopicosCC-TP-TF.git)
+[Repositorio en GitHub](https://github.com/JairRodriguezCalla/TF-TOPICOS.git)
 
 ---
 
