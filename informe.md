@@ -189,7 +189,7 @@ Se definieron tres aulas con capacidades variables, y se generaron aleatoriament
 
 Luego, se establecieron restricciones para garantizar que ningún curso excediera la capacidad de su aula asignada y que no se usara un aula por más de un curso a la vez en el mismo horario y día.  
 
-Después de buscar todas las soluciones posibles, se calculó el uso de aulas en cada asignación y se identificó la mejor solución, que minimiza la cantidad de aulas utilizadas, presentando finalmente la asignación óptima de cursos junto con sus respectivas aulas, horarios y días.
+Después de buscar todas las soluciones posibles, se calculó el uso de aulas en cada asignación y se identificó la mejor solución, que minimiza la cantidad de aulas utilizadas, presentando finalmente la asignación óptima de cursos junto con sus respectivas aulas, horarios y días.  
 
 **Código del desarrollo:**  
 [Repositorio en GitHub](https://github.com/JairRodriguezCalla/TF-TOPICOS.git)
@@ -198,44 +198,61 @@ Después de buscar todas las soluciones posibles, se calculó el uso de aulas en
 
 ### 4.1. Definición del Problema y Variables
 
-Se tomaron en cuenta las siguientes variables para el problema:  
+En esta etapa, se definieron las variables principales del problema: **cursos, aulas, horarios y días**.  
 
-- **Cursos:** Representan los cursos que necesitan ser asignados.  
-- **Aulas:** Representan los espacios disponibles con capacidad limitada.  
-- **Horarios:** Representan los periodos de tiempo en los que se asignan los cursos.  
-- **Días:** Representan los días disponibles para la asignación de horarios.  
+- **Capacidades de las aulas:**  
+  Se especificaron las capacidades de cada aula.  
+
+- **Estudiantes por curso:**  
+  Se generó aleatoriamente la cantidad de estudiantes para cada curso.  
+
+Este código establece los elementos básicos para la asignación de horarios y aulas, asegurando que cada curso tenga su respectiva cantidad de estudiantes y que las aulas cuenten con límites de capacidad. Estas variables son fundamentales para modelar el problema.
 
 ---
 
 ### 4.2. Definición de Restricciones
 
-Se definieron las siguientes restricciones para garantizar la validez de las soluciones:
+Las restricciones del problema fueron modeladas a través de agentes que aseguran la validez de las asignaciones:
 
-- **Restricción de capacidad de aulas:**  
-  Un curso no puede ser asignado a un aula que tenga menos capacidad que el número de estudiantes inscritos en el curso.
+1. **Restricción de capacidad de aulas:**  
+   Cada curso debe ser asignado a un aula con capacidad suficiente para los estudiantes inscritos.
 
-- **Restricción de uso único de aula:**  
-  Un aula no puede ser utilizada por más de un curso al mismo tiempo en el mismo día.
+2. **Restricción de conflictos de horarios:**  
+   No se permite asignar el mismo aula en el mismo horario y día a más de un curso.
 
-- **Optimización de uso de aulas:**  
-  Se busca que los cursos se asignen de manera que se utilicen el máximo número posible de aulas diferentes para evitar concentración.
+Con estas restricciones, el sistema asegura que las soluciones respeten tanto la capacidad física de las aulas como la distribución de horarios.
 
 ---
 
 ### 4.3. Búsqueda de Soluciones y Selección de la Mejor Opción
 
-#### **Búsqueda de soluciones:**
+Para buscar y seleccionar las mejores soluciones, se utilizó un **agente de optimización**. Este agente evalúa las soluciones generadas y selecciona aquella que maximiza el uso de diferentes aulas.
 
-- Se exploran todas las posibles combinaciones de asignaciones de aulas, horarios y días para cada curso, considerando las restricciones impuestas.  
-- Cada combinación generada es evaluada para verificar que cumpla con todas las restricciones definidas.
+#### Implementación del agente de optimización:  
+El agente analiza todas las combinaciones posibles y aplica un criterio de optimización para priorizar aquellas que distribuyan mejor los recursos disponibles.
 
-#### **Selección de la mejor opción:**
+#### Integración y ejecución del sistema:  
+La interacción entre los agentes garantiza que las restricciones definidas sean respetadas mientras se busca la solución óptima.
 
-- **Criterio de optimización:**  
-  Se selecciona la solución que maximiza el uso de diferentes aulas para mejorar la distribución de los cursos y evitar la concentración en un mismo espacio.  
+---
 
-- **Solución ideal:**  
-  La solución que utiliza el mayor número de aulas distintas se considera la mejor opción para evitar sobrecargas en aulas específicas.
+### 4.4. Validación y Pruebas
+
+Para garantizar el correcto funcionamiento del sistema, se diseñaron pruebas específicas para cada agente y su interacción conjunta. Estas pruebas permiten verificar que las restricciones se cumplan y que el sistema genere soluciones válidas.
+
+### Generación del dominio de variables:  
+Se utilizó una función para generar el dominio de combinaciones posibles de aulas, horarios y días, lo que permite asignar todas las combinaciones a las variables del problema.
+
+### Pruebas unitarias para agentes:
+
+- **Prueba del Agente de Aula:**  
+  Evalúa que los cursos sean asignados a aulas con capacidad suficiente.
+
+- **Prueba del Agente de Horario:**  
+  Verifica que no existan conflictos de horario entre los cursos asignados.
+
+### Prueba de integración:  
+Evalúa cómo los agentes trabajan en conjunto para generar soluciones válidas. Se asegura que las restricciones de capacidad y horarios sean respetadas.
 
 ---
 
