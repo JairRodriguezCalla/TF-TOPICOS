@@ -50,7 +50,7 @@ Canaval Sanchez, Luis Martín
 
 ### 1.1. Problemática
 
-En el entorno educativo, una de las tareas más complejas y críticas es la planificación y asignación de horarios para los diferentes cursos que se imparten. Esta planificación implica coordinar a profesores, estudiantes y aulas disponibles, asegurando que no existan conflictos de horario y que se cumplan con todas las restricciones operativas de la institución.
+En el entorno educativo, una de las tareas más complejas y críticas es la planificación y asignación de horarios para los diferentes cursos que se imparten. Esta planificación implica coordinar a profesores, estudiantes y aulas disponibles, asegurando que no existan conflictos de horario y que se cumplan con todas las restricciones operativas de la institución. La complejidad de esta tarea aumenta proporcionalmente con el número de cursos, profesores y aulas disponibles, y cualquier error en la asignación puede tener consecuencias significativas, como:
 
 #### Principales Problemas:
 
@@ -61,15 +61,15 @@ En el entorno educativo, una de las tareas más complejas y críticas es la plan
 
 - **Subutilización de Recursos:**
   - Aulas vacías durante gran parte del horario lectivo.
-  - Profesores con cargas horarias desbalanceadas.
+  - Profesores con cargas horarias desbalanceadas, con algunos sobrecargados y otros subutilizados.
 
 - **Sobrecapacidad en Aulas:**
-  - Asignación de un aula pequeña a un curso con muchos estudiantes.
+  - Asignación de un aula pequeña a un curso con muchos estudiantes, superando la capacidad física y logística del espacio.
 
 - **Dificultad para Ajustar Cambios:**
-  - Cualquier cambio puede requerir una reestructuración significativa de todo el horario.
+  - Cualquier cambio, como la adición de un nuevo curso o la modificación de la disponibilidad de un profesor, puede requerir una reestructuración significativa de todo el horario.
 
----
+Estas dificultades, además de afectar la operatividad diaria de la institución, impactan negativamente en la experiencia educativa de estudiantes y docentes. La tarea de asignación de horarios se suele realizar manualmente o utilizando herramientas básicas como hojas de cálculo, lo cual es ineficiente y propenso a errores, especialmente en instituciones con un gran número de cursos y restricciones.
 
 ### 1.2. Motivación
 
