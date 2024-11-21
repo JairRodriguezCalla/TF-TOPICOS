@@ -205,7 +205,6 @@ En esta etapa, se definieron las variables principales del problema: cursos, aul
 ![IMAGEN2](/images/Imagen1.svg)
 
 Este código establece los elementos básicos para la asignación de horarios y aulas, asegurando que cada curso tenga su respectiva cantidad de estudiantes y que las aulas cuenten con límites de capacidad. Estas variables son fundamentales para modelar el problema.
----
 
 ### 4.2. Definición de Restricciones
 
