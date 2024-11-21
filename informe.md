@@ -181,28 +181,61 @@ El diseño de solución se centra en la implementación de un modelo de **Progra
 - **Adaptabilidad a Cambios:**  
   El modelo puede ajustarse fácilmente a cambios en las restricciones o a la adición de nuevas variables sin necesidad de reestructurar completamente el horario.
 
+---
 
 ## 4. Desarrollo de Solución
 
+Se definieron tres aulas con capacidades variables, y se generaron aleatoriamente la cantidad de estudiantes para cada curso, asegurando que el total de estudiantes se imprimiera en consola.  
+
+Luego, se establecieron restricciones para garantizar que ningún curso excediera la capacidad de su aula asignada y que no se usara un aula por más de un curso a la vez en el mismo horario y día.  
+
+Después de buscar todas las soluciones posibles, se calculó el uso de aulas en cada asignación y se identificó la mejor solución, que minimiza la cantidad de aulas utilizadas, presentando finalmente la asignación óptima de cursos junto con sus respectivas aulas, horarios y días.
+
+**Código del desarrollo:**  
+[Repositorio en GitHub](https://github.com/mauroadauto6/TopicosCC-TP-TF.git)
+
+---
+
 ### 4.1. Definición del Problema y Variables
 
-Definición de aulas, cursos, horarios y estudiantes. Verificación de límites de capacidad y generación aleatoria de datos.
+Se tomaron en cuenta las siguientes variables para el problema:  
+
+- **Cursos:** Representan los cursos que necesitan ser asignados.  
+- **Aulas:** Representan los espacios disponibles con capacidad limitada.  
+- **Horarios:** Representan los periodos de tiempo en los que se asignan los cursos.  
+- **Días:** Representan los días disponibles para la asignación de horarios.  
 
 ---
 
 ### 4.2. Definición de Restricciones
 
-- **Capacidad:** Cursos asignados a aulas adecuadas.
-- **Conflictos de Horarios:** Restricciones para evitar superposiciones.
+Se definieron las siguientes restricciones para garantizar la validez de las soluciones:
+
+- **Restricción de capacidad de aulas:**  
+  Un curso no puede ser asignado a un aula que tenga menos capacidad que el número de estudiantes inscritos en el curso.
+
+- **Restricción de uso único de aula:**  
+  Un aula no puede ser utilizada por más de un curso al mismo tiempo en el mismo día.
+
+- **Optimización de uso de aulas:**  
+  Se busca que los cursos se asignen de manera que se utilicen el máximo número posible de aulas diferentes para evitar concentración.
 
 ---
 
 ### 4.3. Búsqueda de Soluciones y Selección de la Mejor Opción
 
-Exploración y optimización mediante agentes.
+#### **Búsqueda de soluciones:**
 
-**Repositorio de código:**  
-[GitHub - TopicosCC-TP-TF](https://github.com/JairRodriguezCalla/TF-TOPICOS.git)
+- Se exploran todas las posibles combinaciones de asignaciones de aulas, horarios y días para cada curso, considerando las restricciones impuestas.  
+- Cada combinación generada es evaluada para verificar que cumpla con todas las restricciones definidas.
+
+#### **Selección de la mejor opción:**
+
+- **Criterio de optimización:**  
+  Se selecciona la solución que maximiza el uso de diferentes aulas para mejorar la distribución de los cursos y evitar la concentración en un mismo espacio.  
+
+- **Solución ideal:**  
+  La solución que utiliza el mayor número de aulas distintas se considera la mejor opción para evitar sobrecargas en aulas específicas.
 
 ---
 
