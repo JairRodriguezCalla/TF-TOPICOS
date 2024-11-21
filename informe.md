@@ -239,140 +239,155 @@ Se definieron las siguientes restricciones para garantizar la validez de las sol
 
 ---
 
-## 5. Diseño de Solución Actualizada
+## 5.	Diseño de Solución Actualizada
 
-Con el objetivo de mejorar la eficacia y flexibilidad del sistema de asignación de horarios, se ha implementado un **sistema multiagente** que permite dividir el problema en tareas específicas manejadas por agentes independientes.  
+### 5.1. Descripción de los Agentes
 
-Un sistema multiagente es una arquitectura compuesta por múltiples agentes, cada uno responsable de cumplir con una función específica, colaborando para lograr una solución óptima de forma conjunta. En esta solución, cada agente gestiona una parte del proceso de asignación de horarios, mejorando la adaptabilidad y permitiendo una resolución eficiente de restricciones.
+#### 1. Agente de Aula
 
----
+- **Función:**  
+  Este agente es responsable de asignar aulas a los cursos, asegurando que cada aula tenga la capacidad suficiente para los estudiantes inscritos en el curso correspondiente.
 
-### Descripción de los Agentes
-
-#### **Agente de Aula**
-
-- Responsable de asignar aulas a los cursos, asegurando que cada aula tenga la capacidad suficiente para los estudiantes inscritos en el curso correspondiente.  
-- Al gestionar la capacidad de las aulas, este agente ayuda a evitar problemas de sobrecarga y garantiza que los recursos físicos sean usados de manera eficiente.
+- **Beneficios:**  
+  - Gestiona la capacidad de las aulas para evitar problemas de sobrecarga.  
+  - Garantiza que los recursos físicos sean usados de manera eficiente.
 
 ---
 
-#### **Agente de Horario**
+#### 2. Agente de Horario
 
-- Se encarga de coordinar los horarios de los cursos.  
-- Su función es asegurar que no existan conflictos de horarios para los cursos asignados a la misma aula o profesor, evitando así situaciones en las que un recurso (aula o profesor) esté doblemente asignado en el mismo horario.
+- **Función:**  
+  Este agente coordina los horarios de los cursos, asegurando que no existan conflictos de horarios para los cursos asignados a la misma aula o profesor.
+
+- **Beneficios:**  
+  - Evita situaciones en las que un recurso (aula o profesor) esté doblemente asignado en el mismo horario.
 
 ---
 
-#### **Agente de Optimización**
+#### 3. Agente de Optimización
 
-- Evalúa las soluciones generadas por los otros agentes y selecciona la mejor alternativa según criterios de optimización.  
-- Los criterios incluyen:
-  - Uso eficiente de las aulas.
-  - Distribución equilibrada de la carga horaria.
+- **Función:**  
+  Este agente evalúa las soluciones generadas por los otros agentes y selecciona la mejor alternativa según criterios de optimización.
+
+- **Criterios:**  
+  - Uso eficiente de las aulas.  
+  - Distribución equilibrada de la carga horaria.  
   - Cumplimiento de todas las restricciones de capacidad y disponibilidad.
-- Este agente mejora el desempeño general del sistema, logrando una asignación de horarios sin conflictos y adaptada a los recursos disponibles.
 
 ---
 
-### Interacción entre Agentes
+### 5.2. Interacción entre los Agentes
 
 Los agentes en este sistema multiagente colaboran entre sí para asegurar que la solución final sea válida y eficiente.  
 
-La interacción entre los agentes se realiza de la siguiente manera:
+#### 1. Agente de Aula
 
-1. **Agente de Aula**  
-   - Proporciona información sobre las aulas disponibles y sus capacidades al **Agente de Horario** para que este pueda coordinar las asignaciones de horarios sin exceder la capacidad de las aulas.
-
-2. **Agente de Horario**  
-   - Coordina con el **Agente de Optimización**, informándole de las soluciones de asignación de horarios que cumplen con las restricciones de aula y capacidad.
-
-3. **Agente de Optimización**  
-   - Evalúa todas las soluciones viables proporcionadas por los otros agentes y selecciona la que mejor optimice el uso de recursos, distribuyendo equitativamente las asignaciones de aulas y horarios.
+- Valida que las aulas asignadas a los cursos cumplan con las restricciones de capacidad.  
+- Proporciona información al **Agente de Horario** sobre las aulas disponibles para que este pueda coordinar las asignaciones de manera eficiente.
 
 ---
 
-### Beneficios del Sistema Multiagente
+#### 2. Agente de Horario
 
-Esta colaboración permite que el sistema multiagente realice asignaciones de horarios de manera más rápida, adaptable y precisa, optimizando los recursos y reduciendo la posibilidad de conflictos.
+- Asegura que no existan conflictos de horarios en la asignación de aulas y cursos.  
+- Comunica al **Agente de Optimización** las combinaciones que cumplen con las restricciones de horarios y capacidad.
 
-**Ventajas principales:**
+---
 
-- **Rapidez:** Procesa soluciones en menos tiempo al dividir el problema en tareas específicas.
-- **Adaptabilidad:** Facilita la incorporación de cambios en las restricciones.
-- **Precisión:** Minimiza los errores y garantiza la validez de las soluciones.
-- **Optimización:** Mejora la utilización de recursos y la distribución de horarios.
+#### 3. Agente de Optimización
 
+- Evalúa todas las soluciones válidas proporcionadas por los agentes anteriores.  
+- Selecciona la mejor alternativa, optimizando el uso de los recursos disponibles y garantizando una distribución equilibrada de aulas y horarios.
+
+---
+
+### 5.3. Ventajas del Diseño Actualizado
+
+Este diseño presenta las siguientes ventajas:
+
+- **Eficiencia:**  
+  Divide el problema en tareas específicas, lo que permite una resolución modular y optimizada.
+
+- **Flexibilidad:**  
+  Facilita la implementación de cambios en las restricciones (por ejemplo, agregar nuevos cursos o modificar horarios).
+
+- **Escalabilidad:**  
+  El sistema puede manejar un mayor número de variables y restricciones sin pérdida significativa de rendimiento.
+
+- **Colaboración:**  
+  La interacción entre los agentes asegura que todas las restricciones sean respetadas y que la solución final sea óptima.
 
 ---
 
 ## 6. Plan de Validación
 
-Para asegurar que el sistema multiagente cumpla con sus objetivos y funcione correctamente, se han diseñado varias pruebas que permitirán validar cada agente de manera individual y en conjunto, así como evaluar el rendimiento del sistema bajo diferentes condiciones. A continuación, se describen las pruebas y los criterios de éxito.
+Para asegurar que el sistema multiagente cumpla con sus objetivos y funcione correctamente, se han diseñado varias pruebas que permiten validar el comportamiento de cada agente de manera individual, su interacción conjunta y el rendimiento del sistema bajo diferentes condiciones. A continuación, se describen las pruebas realizadas y los criterios de éxito definidos.
 
 ---
 
-### Definición de Pruebas
+### 6.1. Definición de Pruebas
 
-#### **Pruebas Unitarias para Agentes**
+#### 1. Pruebas Unitarias para Agentes
 
-Estas pruebas tienen como objetivo verificar que cada agente cumpla su función de manera independiente:
+Estas pruebas tienen como objetivo validar el correcto funcionamiento de cada agente de forma independiente:
 
 - **Agente de Aula:**  
-  - Validar que todos los cursos asignados a un aula cumplen con las restricciones de capacidad.
+  Verifica que todos los cursos asignados a un aula cumplen con las restricciones de capacidad.
 
 - **Agente de Horario:**  
-  - Verificar que no se produzcan conflictos de horario en las aulas y que cada curso esté asignado en un horario único, sin superposiciones.
+  Evalúa que no se produzcan conflictos de horarios en las aulas y que cada curso esté asignado a un horario único, sin superposiciones.
 
 - **Agente de Optimización:**  
-  - Asegurar que las soluciones seleccionadas maximizan el uso de diferentes aulas y optimizan la distribución de horarios.
+  Prueba que las soluciones seleccionadas optimizan el uso de diferentes aulas y garantizan una distribución equilibrada de los recursos disponibles.
 
 ---
 
-#### **Pruebas de Integración de Agentes**
+#### 2. Pruebas de Integración de Agentes
 
-Estas pruebas evaluarán la interacción entre los agentes, verificando que colaboren correctamente para producir una solución válida:
+Estas pruebas verifican cómo interactúan los agentes para resolver el problema de manera conjunta:
 
 - **Interacción entre Agente de Aula y Agente de Horario:**  
-  - Comprobar que las asignaciones de aulas y horarios no generen conflictos y que la información se intercambie de manera efectiva.
+  Asegura que las aulas asignadas respeten las restricciones de capacidad y no generen conflictos de horarios.
 
 - **Interacción con el Agente de Optimización:**  
-  - Validar que las soluciones generadas por los agentes de Aula y Horario sean correctamente evaluadas por el Agente de Optimización, garantizando que la solución final sea eficiente y sin conflictos.
+  Valida que las soluciones generadas por los agentes de Aula y Horario sean correctamente evaluadas y optimizadas por el Agente de Optimización para seleccionar la mejor alternativa.
 
 ---
 
-#### **Pruebas de Rendimiento**
+#### 3. Pruebas de Rendimiento
 
-Estas pruebas evaluarán la capacidad del sistema multiagente para manejar un mayor volumen de datos y restricciones:
+Estas pruebas evalúan la capacidad del sistema para manejar volúmenes mayores de datos y restricciones:
 
-- **Incremento del volumen de datos:**  
-  - Incrementar el número de cursos, aulas y horarios disponibles para observar el rendimiento del sistema y garantizar que pueda procesar las asignaciones sin pérdida significativa de eficiencia o precisión.
+- **Escalabilidad:**  
+  Incremento del número de cursos, aulas y horarios para observar cómo el sistema gestiona el aumento de la complejidad.
 
-- **Pruebas de carga:**  
-  - Verificar que el sistema pueda adaptarse a cambios en las restricciones o en el número de cursos, manteniendo un rendimiento aceptable.
+- **Adaptabilidad:**  
+  Pruebas de carga para verificar que el sistema pueda adaptarse a cambios en las restricciones o en el número de cursos, manteniendo tiempos de respuesta aceptables.
 
 ---
 
-### Criterios de Éxito
+### 6.2. Criterios de Éxito
 
-Para considerar que el sistema multiagente ha pasado las pruebas de validación, debe cumplir con los siguientes criterios:
+Para garantizar que el sistema multiagente cumple con los objetivos propuestos, se establecieron los siguientes criterios de éxito:
 
-- **Soluciones sin conflictos:**  
-  - Todas las asignaciones de horarios y aulas deben cumplir con las restricciones definidas, evitando conflictos de horario, capacidad o uso de aulas.
+1. **Soluciones sin conflictos:**  
+   Todas las asignaciones de horarios y aulas deben cumplir con las restricciones definidas, asegurando que no existan conflictos de capacidad, horarios o uso de recursos.
 
-- **Distribución eficiente de recursos:**  
-  - La solución final debe maximizar el uso de diferentes aulas y distribuir de manera equitativa la carga horaria entre las asignaciones.
+2. **Distribución eficiente de recursos:**  
+   La solución final debe maximizar el uso de diferentes aulas, distribuyendo de manera equitativa la carga horaria entre las asignaciones.
 
-- **Adaptabilidad a cambios:**  
-  - El sistema debe ajustarse rápidamente a modificaciones en las restricciones o a la adición de nuevos cursos, sin requerir reestructuraciones significativas.
+3. **Adaptabilidad a cambios:**  
+   El sistema debe ser capaz de ajustarse rápidamente a modificaciones en las restricciones (por ejemplo, añadir nuevos cursos, horarios o aulas) sin necesidad de reestructurar todo el sistema.
 
-- **Rendimiento óptimo:**  
-  - El sistema debe procesar las asignaciones y generar soluciones en tiempos razonables, incluso al manejar un número elevado de restricciones y datos.
+4. **Rendimiento óptimo:**  
+   El sistema debe generar soluciones válidas en tiempos razonables, incluso al manejar un número elevado de variables y restricciones.
 
 
 ---
 
 ## 7. Conclusión
 
-El diseño de solución propuesto garantiza la asignación eficiente de horarios mediante la utilización de técnicas de programación con restricciones. La implementación en Python facilita la validación y optimización de las soluciones, asegurando un modelo flexible y robusto capaz de manejar las complejidades típicas del entorno educativo. Este enfoque no solo resuelve la problemática inicial, sino que también proporciona una herramienta adaptable para futuras necesidades y cambios.
-La programación con restricciones (CSP) es una herramienta eficaz para resolver problemas complejos de asignación, como la distribución de cursos en aulas. Utilizando variables y restricciones precisas, se logran soluciones óptimas que maximizan el uso de los recursos disponibles y optimizan la planificación académica. CSP permite explorar múltiples combinaciones y seleccionar la mejor opción, demostrando su aplicabilidad en contextos educativos y logísticos.
+El diseño de solución propuesto garantiza la asignación eficiente de horarios mediante la implementación de un sistema multiagente basado en técnicas de programación con restricciones (CSP). Este enfoque permite dividir el problema en tareas específicas manejadas por agentes independientes, lo que mejora la modularidad y la colaboración en la resolución del problema. La implementación en Python, junto con bibliotecas especializadas, facilita la validación y optimización de las soluciones, asegurando un modelo flexible, escalable y robusto para manejar las complejidades típicas del entorno educativo.
+La programación con restricciones (CSP) ha demostrado ser una herramienta eficaz para resolver problemas complejos de asignación, como la distribución de cursos en aulas. A través de la definición precisa de variables, dominios y restricciones, se logran soluciones válidas que maximizan el uso de los recursos disponibles, minimizan los conflictos y optimizan la planificación académica. Además, la integración de un sistema multiagente ha permitido abordar el problema de manera más eficiente, asegurando que las soluciones finales sean válidas y que cumplan con los objetivos de optimización definidos.
+
 
