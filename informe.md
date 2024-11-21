@@ -200,16 +200,11 @@ Después de buscar todas las soluciones posibles, se calculó el uso de aulas en
 
 ### 4.1. Definición del Problema y Variables
 
-En esta etapa, se definieron las variables principales del problema: **cursos, aulas, horarios y días**.  
+En esta etapa, se definieron las variables principales del problema: cursos, aulas, horarios y días. Además, se especificaron las capacidades de cada aula y se generó aleatoriamente la cantidad de estudiantes para cada curso.
 
-- **Capacidades de las aulas:**  
-  Se especificaron las capacidades de cada aula.  
-
-- **Estudiantes por curso:**  
-  Se generó aleatoriamente la cantidad de estudiantes para cada curso.  
+![IMAGEN2](/images/imagen1.svg)
 
 Este código establece los elementos básicos para la asignación de horarios y aulas, asegurando que cada curso tenga su respectiva cantidad de estudiantes y que las aulas cuenten con límites de capacidad. Estas variables son fundamentales para modelar el problema.
-
 ---
 
 ### 4.2. Definición de Restricciones
@@ -219,8 +214,12 @@ Las restricciones del problema fueron modeladas a través de agentes que asegura
 1. **Restricción de capacidad de aulas:**  
    Cada curso debe ser asignado a un aula con capacidad suficiente para los estudiantes inscritos.
 
+   ![IMAGEN3](/images/imagen2.svg)
+
 2. **Restricción de conflictos de horarios:**  
    No se permite asignar el mismo aula en el mismo horario y día a más de un curso.
+
+   ![IMAGEN4](/images/imagen3.svg)
 
 Con estas restricciones, el sistema asegura que las soluciones respeten tanto la capacidad física de las aulas como la distribución de horarios.
 
