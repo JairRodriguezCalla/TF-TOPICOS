@@ -77,15 +77,15 @@ La asignación de horarios es un problema típico de optimización que puede ser
 
 **Razones para utilizar CSP:**
 
-- 1. **Automatización:** 
+1. **Automatización:** 
   - Utilizar CSP para la asignación de horarios permite automatizar un proceso que de otra manera sería tedioso y propenso a errores. Con la definición adecuada de las restricciones, el sistema puede generar un horario completo y consistente en cuestión de segundos.
-- 2. **Optimización:** 
+2. **Optimización:** 
   - El uso de CSP permite no solo cumplir con todas las restricciones, sino también optimizar el uso de recursos, como asegurar que no haya aulas vacías en horarios pico o balancear la carga horaria entre los profesores.
-- 3. **Flexibilidad:** 
+3. **Flexibilidad:** 
   - Un modelo CSP bien diseñado permite realizar cambios en las restricciones de manera sencilla. Por ejemplo, si un profesor cambia su disponibilidad o se añade un nuevo curso, el sistema puede reajustar el horario completo sin necesidad de rehacerlo desde cero.
-- 4. **Reducción de Conflictos:** 
+4. **Reducción de Conflictos:** 
   - Al modelar explícitamente todas las restricciones, el sistema asegura que no haya conflictos de horarios entre profesores, estudiantes y aulas. Esto reduce significativamente los problemas operativos que suelen surgir al inicio de cada ciclo lectivo.
-- 5. **Mejora Educativa:** 
+5. **Mejora Educativa:** 
   - Al evitar problemas de sobrecarga de profesores y aulas, y al asegurar que los estudiantes puedan asistir a todas sus clases sin conflictos, se mejora la calidad del entorno educativo, permitiendo una mejor experiencia tanto para estudiantes como para profesores.
 
 ---
@@ -94,13 +94,16 @@ La asignación de horarios es un problema típico de optimización que puede ser
 
 ### 2.1. Objetivo General
 
-Desarrollar un modelo de **CSP** para asignación óptima de horarios, respetando restricciones de disponibilidad de profesores, capacidad de aulas y evitando conflictos.
+Desarrollar un modelo de programación con restricciones (CSP) para la asignación óptima de horarios en una escuela, asegurando que todas las restricciones de disponibilidad de profesores, capacidad de aulas y conflictos de horarios entre cursos sean respetadas, y que se minimicen los conflictos y la subutilización de recursos.
 
 ### 2.2. Objetivos Específicos
 
-1. Modelar las restricciones del problema en un modelo CSP.
-2. Implementar el modelo en Python usando `python-constraint`.
-3. Validar y optimizar las soluciones generadas.
+1. Modelar las restricciones del problema en un modelo CSP:
+  - Definir las variables, dominios y restricciones necesarias para representar el problema de asignación de horarios, asegurando que se contemplen la disponibilidad de profesores, capacidad de aulas y evitar conflictos de horarios.
+2. Implementar el modelo CSP en Python utilizando la biblioteca python-constraint:
+  - Desarrollar el modelo en código, integrando todas las restricciones identificadas y generando soluciones válidas para la asignación de horarios que respeten todas las condiciones del problema.
+3. Validar y optimizar las soluciones generadas:
+  - Probar el modelo CSP con datos de prueba, verificar que no existan conflictos en las soluciones obtenidas y optimizar el uso de recursos (aulas y profesores), buscando el balance óptimo entre las restricciones y la eficacia del horario generado.
 
 ---
 
