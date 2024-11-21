@@ -159,7 +159,7 @@ Definición de aulas, cursos, horarios y estudiantes. Verificación de límites 
 Exploración y optimización mediante agentes.
 
 **Repositorio de código:**  
-[GitHub - TopicosCC-TP-TF](https://github.com/mauroadauto6/TopicosCC-TP-TF.git)
+[GitHub - TopicosCC-TP-TF](https://github.com/JairRodriguezCalla/TF-TOPICOS.git)
 
 ---
 
