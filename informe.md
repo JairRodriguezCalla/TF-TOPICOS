@@ -99,53 +99,88 @@ Desarrollar un modelo de programación con restricciones (CSP) para la asignaci�
 ### 2.2. Objetivos Específicos
 
 1. Modelar las restricciones del problema en un modelo CSP:
-    Definir las variables, dominios y restricciones necesarias para representar el problema de asignación de horarios, asegurando que se contemplen la disponibilidad de profesores, capacidad de aulas y evitar conflictos de horarios.
+  - Definir las variables, dominios y restricciones necesarias para representar el problema de asignación de horarios, asegurando que se contemplen la disponibilidad de profesores, capacidad de aulas y evitar conflictos de horarios.
 2. Implementar el modelo CSP en Python utilizando la biblioteca python-constraint:
-    Desarrollar el modelo en código, integrando todas las restricciones identificadas y generando soluciones válidas para la asignación de horarios que respeten todas las condiciones del problema.
+  - Desarrollar el modelo en código, integrando todas las restricciones identificadas y generando soluciones válidas para la asignación de horarios que respeten todas las condiciones del problema.
 3. Validar y optimizar las soluciones generadas:
-   Probar el modelo CSP con datos de prueba, verificar que no existan conflictos en las soluciones obtenidas y optimizar el uso de recursos (aulas y profesores), buscando el balance óptimo entre las restricciones y la eficacia del horario generado.
+  - Probar el modelo CSP con datos de prueba, verificar que no existan conflictos en las soluciones obtenidas y optimizar el uso de recursos (aulas y profesores), buscando el balance óptimo entre las restricciones y la eficacia del horario generado.
 
 ---
 
 ## 3. Diseño de Solución
 
+El diseño de solución se centra en la implementación de un modelo de **Programación con Restricciones (CSP)** para la asignación óptima de horarios en una institución educativa. El objetivo principal es asegurar que todas las restricciones de disponibilidad de profesores, capacidad de aulas y conflictos de horarios entre cursos sean respetadas. A continuación, se detallan los pasos y componentes clave del diseño de solución:
+
 ### 3.1. Modelado del Problema con CSP
 
-- **Definición de Variables:** Representan la asignación de un aula, horario y día para cada curso.
-- **Dominios:** Combinaciones posibles de aulas, horarios y días.
-- **Restricciones:** 
-  - Capacidad de Aulas.
-  - Conflictos de Horarios.
-  - Disponibilidad de Profesores.
+- **Definición de Variables:**  
+  Se definen variables para cada curso, las cuales representan la asignación de un aula, un horario y un día específico.
+
+- **Dominios:**  
+  Cada variable tiene un dominio que incluye todas las combinaciones posibles de aulas, horarios y días en los que se puede asignar el curso.
+
+- **Restricciones:**  
+  Se modelan varias restricciones para garantizar que las soluciones generadas sean válidas y óptimas:
+  - **Capacidad de Aulas:** Asegura que la cantidad de estudiantes no exceda la capacidad máxima del aula asignada.
+  - **Conflictos de Horarios:** Evita que más de un curso se asigne al mismo aula, horario y día.
+  - **Distribución Equitativa:** Garantiza que se utilicen todas las aulas disponibles y que no se concentren todos los cursos en un solo día o aula.
+  - **Disponibilidad de Profesores:** Asegura que los profesores no se asignen a más de un curso al mismo tiempo.
 
 ---
 
 ### 3.2. Implementación en Python usando `python-constraint`
 
-- **Configuración del Modelo:** Uso de `Problem()` para modelar restricciones.
-- **Validación:** `getSolutions()` para obtener soluciones válidas.
+- **Configuración del Modelo:**  
+  Se utiliza la biblioteca `python-constraint` para modelar el problema con todas las restricciones identificadas.
+
+- **Definición del Problema:**  
+  Se crea un objeto `Problem()` y se añaden variables, dominios y restricciones mediante funciones `addVariable()` y `addConstraint()`.
+
+- **Validación de Soluciones:**  
+  Se utiliza el método `getSolutions()` para obtener todas las soluciones posibles que cumplan con las restricciones definidas.
 
 ---
 
 ### 3.3. Optimización de la Solución
 
-- Evaluación y selección de la mejor solución mediante funciones de puntaje.
+- **Evaluación de Soluciones:**  
+  Se aplica un criterio de evaluación para seleccionar la mejor solución en función de la distribución equilibrada de aulas y horarios.
+
+- **Penalización y Selección:**  
+  Se utiliza una función de puntaje para penalizar las soluciones que no cumplen con la distribución ideal de horarios y aulas. La solución con el puntaje más bajo es seleccionada como la mejor.
 
 ---
 
 ### 3.4. Validación y Pruebas
 
-- Pruebas unitarias, integración de agentes y rendimiento.
+- **Pruebas de Consistencia:**  
+  Se prueban diferentes combinaciones de cursos, aulas y horarios para asegurar que el modelo puede manejar casos complejos y garantizar la validez de las soluciones generadas.
+
+- **Evaluación de Escenarios de Cambio:**  
+  Se simulan cambios en la disponibilidad de profesores o la adición de nuevos cursos para evaluar la adaptabilidad del modelo CSP.
+
+- **Pruebas de Consistencia de Agentes:**  
+  Explica que se realizan pruebas unitarias para asegurar que cada agente (Aula, Horario, Optimización) cumpla con su función específica.
+
+- **Pruebas de Integración de Agentes:**  
+  Describe cómo los agentes interactúan y se integran para asegurar que el sistema multiagente funcione de manera coordinada, resolviendo las asignaciones sin conflictos.
+
+- **Pruebas de Rendimiento:**  
+  Menciona que pruebas de carga y rendimiento se realizarán para verificar que el sistema multiagente puede manejar aumentos en el número de cursos y restricciones.
 
 ---
 
 ### 3.5. Resultados Esperados
 
-- Optimización de recursos.
-- Reducción de conflictos.
-- Adaptabilidad a cambios.
+- **Optimización del Uso de Recursos:**  
+  Se espera una utilización óptima de las aulas y una distribución balanceada de la carga horaria de los profesores.
 
----
+- **Reducción de Conflictos:**  
+  Al modelar explícitamente todas las restricciones, se minimizan los conflictos de horario y se evita la sobrecarga o subutilización de recursos.
+
+- **Adaptabilidad a Cambios:**  
+  El modelo puede ajustarse fácilmente a cambios en las restricciones o a la adición de nuevas variables sin necesidad de reestructurar completamente el horario.
+
 
 ## 4. Desarrollo de Solución
 
