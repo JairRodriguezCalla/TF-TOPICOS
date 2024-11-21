@@ -73,15 +73,20 @@ Estas dificultades, además de afectar la operatividad diaria de la institución
 
 ### 1.2. Motivación
 
-La asignación de horarios puede ser abordada mediante técnicas de **Programación con Restricciones (CSP)**, que modelan todas las restricciones del problema y buscan soluciones óptimas.
+La asignación de horarios es un problema típico de optimización que puede ser abordado mediante técnicas de programación con restricciones (Constraint Programming, CSP), ya que estas permiten modelar de manera explícita todas las restricciones del problema y buscar una solución que las satisfaga de manera óptima.
 
 **Razones para utilizar CSP:**
 
-1. **Automatización:** Generación rápida y consistente de horarios.
-2. **Optimización:** Uso eficiente de recursos.
-3. **Flexibilidad:** Adaptación sencilla a cambios.
-4. **Reducción de Conflictos:** Eliminación de errores comunes.
-5. **Mejora Educativa:** Asegurar la mejor experiencia para estudiantes y profesores.
+- 1. **Automatización:** 
+  - Utilizar CSP para la asignación de horarios permite automatizar un proceso que de otra manera sería tedioso y propenso a errores. Con la definición adecuada de las restricciones, el sistema puede generar un horario completo y consistente en cuestión de segundos.
+- 2. **Optimización:** 
+  - El uso de CSP permite no solo cumplir con todas las restricciones, sino también optimizar el uso de recursos, como asegurar que no haya aulas vacías en horarios pico o balancear la carga horaria entre los profesores.
+- 3. **Flexibilidad:** 
+  - Un modelo CSP bien diseñado permite realizar cambios en las restricciones de manera sencilla. Por ejemplo, si un profesor cambia su disponibilidad o se añade un nuevo curso, el sistema puede reajustar el horario completo sin necesidad de rehacerlo desde cero.
+- 4. **Reducción de Conflictos:** 
+  - Al modelar explícitamente todas las restricciones, el sistema asegura que no haya conflictos de horarios entre profesores, estudiantes y aulas. Esto reduce significativamente los problemas operativos que suelen surgir al inicio de cada ciclo lectivo.
+- 5. **Mejora Educativa:** 
+  - Al evitar problemas de sobrecarga de profesores y aulas, y al asegurar que los estudiantes puedan asistir a todas sus clases sin conflictos, se mejora la calidad del entorno educativo, permitiendo una mejor experiencia tanto para estudiantes como para profesores.
 
 ---
 
