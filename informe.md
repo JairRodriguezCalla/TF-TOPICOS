@@ -231,8 +231,12 @@ Para buscar y seleccionar las mejores soluciones, se utilizó un **agente de opt
 #### Implementación del agente de optimización:  
 El agente analiza todas las combinaciones posibles y aplica un criterio de optimización para priorizar aquellas que distribuyan mejor los recursos disponibles.
 
+![IMAGEN3](/images/Imagen4.svg)
+
 #### Integración y ejecución del sistema:  
 La interacción entre los agentes garantiza que las restricciones definidas sean respetadas mientras se busca la solución óptima.
+
+![IMAGEN3](/images/Imagen5.svg)
 
 ---
 
@@ -243,6 +247,8 @@ Para garantizar el correcto funcionamiento del sistema, se diseñaron pruebas es
 ### Generación del dominio de variables:  
 Se utilizó una función para generar el dominio de combinaciones posibles de aulas, horarios y días, lo que permite asignar todas las combinaciones a las variables del problema.
 
+![IMAGEN3](/images/Imagen6.svg)
+
 ### Pruebas unitarias para agentes:
 
 - **Prueba del Agente de Aula:**  
@@ -251,9 +257,12 @@ Se utilizó una función para generar el dominio de combinaciones posibles de au
 - **Prueba del Agente de Horario:**  
   Verifica que no existan conflictos de horario entre los cursos asignados.
 
+  ![IMAGEN3](/images/Imagen7.svg)
+
 ### Prueba de integración:  
 Evalúa cómo los agentes trabajan en conjunto para generar soluciones válidas. Se asegura que las restricciones de capacidad y horarios sean respetadas.
 
+![IMAGEN3](/images/Imagen8.svg)
 ---
 
 ## 5.	Diseño de Solución Actualizada
