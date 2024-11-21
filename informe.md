@@ -241,11 +241,67 @@ Se definieron las siguientes restricciones para garantizar la validez de las sol
 
 ## 5. Diseño de Solución Actualizada
 
-Implementación de un sistema **multiagente**, compuesto por:
+Con el objetivo de mejorar la eficacia y flexibilidad del sistema de asignación de horarios, se ha implementado un **sistema multiagente** que permite dividir el problema en tareas específicas manejadas por agentes independientes.  
 
-1. **Agente de Aula:** Asignación basada en capacidades.
-2. **Agente de Horario:** Coordinación de horarios sin conflictos.
-3. **Agente de Optimización:** Selección de soluciones óptimas.
+Un sistema multiagente es una arquitectura compuesta por múltiples agentes, cada uno responsable de cumplir con una función específica, colaborando para lograr una solución óptima de forma conjunta. En esta solución, cada agente gestiona una parte del proceso de asignación de horarios, mejorando la adaptabilidad y permitiendo una resolución eficiente de restricciones.
+
+---
+
+### Descripción de los Agentes
+
+#### **Agente de Aula**
+
+- Responsable de asignar aulas a los cursos, asegurando que cada aula tenga la capacidad suficiente para los estudiantes inscritos en el curso correspondiente.  
+- Al gestionar la capacidad de las aulas, este agente ayuda a evitar problemas de sobrecarga y garantiza que los recursos físicos sean usados de manera eficiente.
+
+---
+
+#### **Agente de Horario**
+
+- Se encarga de coordinar los horarios de los cursos.  
+- Su función es asegurar que no existan conflictos de horarios para los cursos asignados a la misma aula o profesor, evitando así situaciones en las que un recurso (aula o profesor) esté doblemente asignado en el mismo horario.
+
+---
+
+#### **Agente de Optimización**
+
+- Evalúa las soluciones generadas por los otros agentes y selecciona la mejor alternativa según criterios de optimización.  
+- Los criterios incluyen:
+  - Uso eficiente de las aulas.
+  - Distribución equilibrada de la carga horaria.
+  - Cumplimiento de todas las restricciones de capacidad y disponibilidad.
+- Este agente mejora el desempeño general del sistema, logrando una asignación de horarios sin conflictos y adaptada a los recursos disponibles.
+
+---
+
+### Interacción entre Agentes
+
+Los agentes en este sistema multiagente colaboran entre sí para asegurar que la solución final sea válida y eficiente.  
+
+La interacción entre los agentes se realiza de la siguiente manera:
+
+1. **Agente de Aula**  
+   - Proporciona información sobre las aulas disponibles y sus capacidades al **Agente de Horario** para que este pueda coordinar las asignaciones de horarios sin exceder la capacidad de las aulas.
+
+2. **Agente de Horario**  
+   - Coordina con el **Agente de Optimización**, informándole de las soluciones de asignación de horarios que cumplen con las restricciones de aula y capacidad.
+
+3. **Agente de Optimización**  
+   - Evalúa todas las soluciones viables proporcionadas por los otros agentes y selecciona la que mejor optimice el uso de recursos, distribuyendo equitativamente las asignaciones de aulas y horarios.
+
+---
+
+### Beneficios del Sistema Multiagente
+
+Esta colaboración permite que el sistema multiagente realice asignaciones de horarios de manera más rápida, adaptable y precisa, optimizando los recursos y reduciendo la posibilidad de conflictos.
+
+**Ventajas principales:**
+
+- **Rapidez:** Procesa soluciones en menos tiempo al dividir el problema en tareas específicas.
+- **Adaptabilidad:** Facilita la incorporación de cambios en las restricciones.
+- **Precisión:** Minimiza los errores y garantiza la validez de las soluciones.
+- **Optimización:** Mejora la utilización de recursos y la distribución de horarios.
+
 
 ---
 
